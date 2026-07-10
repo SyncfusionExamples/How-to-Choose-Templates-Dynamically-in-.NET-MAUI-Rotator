@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SfRotatorDynamicTemplate.MainPage"
-             xmlns:viewmodel="clr-namespace:SfRotatorDynamicTemplate.ViewModel"
+             xmlns:viewModel="clr-namespace:SfRotatorDynamicTemplate"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator">
     <ContentPage.BindingContext>
-        <viewmodel:RotatorViewModel/>
+        <viewModel:RotatorViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -69,7 +69,7 @@
     <Grid>
         <syncfusion:SfRotator ItemsSource="{Binding ImageCollection}">
             <syncfusion:SfRotator.ItemTemplate>
-                <viewmodel:RotatorTemplateSelector
+                <viewModel:RotatorTemplateSelector
                     DefaultTemplate="{StaticResource DefaultTemplate}"
                     SpecialTemplate="{StaticResource SpecialTemplate}" />
             </syncfusion:SfRotator.ItemTemplate>

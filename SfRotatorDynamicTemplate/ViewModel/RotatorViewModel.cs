@@ -1,10 +1,9 @@
-﻿using SfRotatorDynamicTemplate.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace SfRotatorDynamicTemplate.ViewModel
+namespace SfRotatorDynamicTemplate
 {
     public class RotatorViewModel
     {

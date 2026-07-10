@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SfRotatorDynamicTemplate.Model
+namespace SfRotatorDynamicTemplate
 {
     public class RotatorModel
     {
