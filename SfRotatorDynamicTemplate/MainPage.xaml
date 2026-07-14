@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SfRotatorDynamicTemplate.MainPage"
+             xmlns:viewModel="clr-namespace:SfRotatorDynamicTemplate"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Rotator;assembly=Syncfusion.Maui.Rotator">
+    <ContentPage.BindingContext>
+        <viewModel:RotatorViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Default Template -->
+            <DataTemplate x:Key="DefaultTemplate">
+                <Grid Padding="10">
+                    <Border StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20">
+                        <Image Source="{Binding Image}"
+                           Aspect="AspectFit"/>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+
+            <!-- Special Template -->
+            <DataTemplate x:Key="SpecialTemplate">
+                <Grid Padding="10">
+
+                    <Border StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20">
+                        <Grid>
+                            <!-- Background Image -->
+                            <Image Source="{Binding Image}"
+                               Aspect="AspectFit"/>
+                            <!-- Dark Overlay -->
+                            <BoxView
+                                 Opacity="0.45"/>
+                            <!-- Badge -->
+                            <Border BackgroundColor="#FF6B35"
+                                StrokeThickness="0"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Start"
+                                Margin="15"
+                                Padding="10,5"
+                                StrokeShape="RoundRectangle 15">
+                            <Label Text="Bird"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                FontSize="12"/>
+                            </Border>
+
+                            <!-- Content -->
+                            <VerticalStackLayout VerticalOptions="End" Padding="20" Spacing="5">
+                                <Label Text="Premium Collection"
+                                   TextColor="White"
+                                   FontSize="24"
+                                   FontAttributes="Bold"/>
+                                <Label Text="Displayed using a custom DataTemplate selected at runtime."
+                                   TextColor="White"
+                                   FontSize="14"
+                                   LineBreakMode="WordWrap"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+        <syncfusion:SfRotator ItemsSource="{Binding ImageCollection}">
+            <syncfusion:SfRotator.ItemTemplate>
+                <viewModel:RotatorTemplateSelector
+                    DefaultTemplate="{StaticResource DefaultTemplate}"
+                    SpecialTemplate="{StaticResource SpecialTemplate}" />
+            </syncfusion:SfRotator.ItemTemplate>
+        </syncfusion:SfRotator>
+    </Grid>
+
+
+</ContentPage>
